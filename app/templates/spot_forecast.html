@@ -1,0 +1,49 @@
+<html>
+
+  <head>
+    <title>KK Surfreport 0.1</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
+	<script>
+	$(document).ready(function(){
+		$("p").click(function(){
+			$(this).hide();
+		});
+	});
+	</script>
+	<script>
+	$(document).ready(function(){
+		$("h1").click(function(){
+			$(this).slideUp();
+		});
+	});
+	</script>
+  </head>
+
+  <body>
+      <h1>{{ all_data.name }}</h1>
+      <h2> SWELL DATA </h2>
+      <div><p>{{ all_data.Analysis.short_term_forecast}}</b></p></div>
+	  {% for key, value in all_data.Surf.items() %}
+          <div><p>{{ key }}</b></p></div>
+          <div><p>{{ value }}</p></div>
+      {% endfor %}
+  </body>
+
+  <body>
+      <h2> WIND DATA </h2>
+	  {% for key, value in all_data.Wind.items() %}
+          <div><p>{{ key }}</b></p></div>
+          <div><p>{{ value }}</p></div>
+      {% endfor %}
+  </body>
+
+  <body>
+      <h2> TIDE DATA </h2>
+	  {% for key, value in all_data.Tide.items() %}
+          <div><p>{{ key }}</b></p></div>
+          <div><p>{{ value }}</p></div>
+      {% endfor %}
+  </body>
+
+</html>
