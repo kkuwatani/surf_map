@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Oswald';
+}
+
+#wrapper {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    background-color: #505050;
+}
+
+#map {
+    position: absolute;
+    left: 35%;
+    height: 100%;
+    width: 65%;
+    background-color: #000000;
+    background-image: url("../images/surf map.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.conditions {
+    color: white
+}
+
+.surf_spot {
+    color: white
+}
+
+#ocean_beach {
+    position: absolute;
+    left: 59%;
+    top: 51%;
+    height: 30px;
+    width: 50px;
+}
+
+#linda_mar {
+    position: absolute;
+    left: 62%;
+    top: 78%;
+    height: 30px;
+    width: 50px;
+}
+
+#bolinas {
+    position: absolute;
+    left: 19%;
+    top: 21%;
+    height: 30px;
+    width: 50px;
+}
+
+#fort_cronkite {
+    position: absolute;
+    left: 53%;
+    top: 36%;
+    height: 30px;
+    width: 50px;
+}
+
+#fort_point {
+    position: absolute;
+    left: 67%;
+    top: 40.5%;
+    height: 30px;
+    width: 50px;
+}

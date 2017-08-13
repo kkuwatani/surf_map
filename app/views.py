@@ -1,38 +1,44 @@
 from flask import render_template
 from app import app
 from app import surf_api
+from flask import jsonify
+from flask import url_for
+import os
 
-""" Notes...
--Look up how to autorefresh page every hour
--Work on index page styling (bootstrap css)
--Remember JQuery stuff and begin linking divs as buttons
-"""
+spot_key = {'ocean_beach': "4127",
+            "linda_mar": "5013",
+            "bolinas": "5091",
+            "pleasure_point": "4190",
+            "fort_cronkite": "5089"}
 
 @app.route('/')
-@app.route('/index')
+@app.route('/index', methods=['GET'])
 def index():
-    all_data = surf_api.get_surfline_data_all()
-
-    current_time = all_data[0]['Surf']['startDate_pretty_LOCAL']
-    surf_bins = all_data[0]['Surf']['dateStamp'][0]
-    # compare current time with time bins via strftime
-    # set time index based on comparison
-
-    # repeat process with every 3 hour wind time bins
-
-    # repeat process with hourly tide bins
-    surf_index = 0
-    wind_index = 0
-    tide_index = 0
-
+    current_data = surf_api.get_current_conditions_summary()
     return render_template('index.html',
-                           all_data=all_data,
-                           surf_index=surf_index,
-                           wind_index=wind_index,
-                           tide_index=tide_index)
+                           data=current_data)
 
-@app.route('/lindamar')
-def lindamar():
-    all_data = surf_api.get_surfline_data("Linda Mar", 10)
-    return render_template('spot_forecast.html',
-                           all_data=all_data)
+@app.route('/update_conditions', methods=['GET'])
+def update_conditions():
+    current_data = surf_api.get_current_conditions_summary()
+    return jsonify(current_data)
+
+
+@app.route('/spot_forecast/<string:spot>', methods=['GET'])
+def get_spot_forecast(spot):
+    data = surf_api.surfline_api_request(spot_key[spot], 10)
+    return jsonify(data)
+
+# temporary code snippet that ensures CSS is always reloaded by the browser
+@app.context_processor
+def override_url_for():
+    return dict(url_for=dated_url_for)
+
+def dated_url_for(endpoint, **values):
+    if endpoint == 'static':
+        filename = values.get('filename', None)
+        if filename:
+            file_path = os.path.join(app.root_path,
+                                     endpoint, filename)
+            values['q'] = int(os.stat(file_path).st_mtime)
+    return url_for(endpoint, **values)

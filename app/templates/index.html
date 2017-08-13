@@ -1,26 +1,55 @@
+<!DOCTYPE html>
 <html>
 
-    <head>
-        <title>KK Surfreport 0.1</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
-    </head>
+<head>
+    <title>ZK Surf</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
+    {% if not data.Tide.Rise %}
+    {% endif %}
+</head>
 
-    <body>
-        <div>
-            <p>{{ all_data[0].Surf.startDate_pretty_LOCAL }}</p>
-            <p> add air temp and water temp here </p>
-        </div>
-        {% for spot in all_data %}
-            <div style="color:#000050">
-            <h2>{{ spot.name }}</h2>
-            <p> surf range {{ spot.Analysis.surfRange[0] }} </p>
-            <p> surf period {{ spot.Surf.swell_period1[0][surf_index]|round(1) }} seconds </p>
-            <p> surf direction {{ spot.Surf.swell_direction1[0][surf_index] }} degrees </p>
-            <p> wind speed {{ spot.Wind.wind_speed[0][surf_index*2+1]|round(1) }} kts </p>
-            <p> wind direction {{ spot.Wind.wind_direction[0][wind_index] }} degrees </p>
-            <p> current tide {{ spot.Tide.dataPoints[tide_index].height|round(1) }} ft </p>
+<body onload="startTime()">
+    <div id="wrapper">
+        <div id="map">
+
+            <div id="ocean_beach" class="surf_spot">
+                {{ data.Waves.ocean_beach }}
             </div>
-        {% endfor %}
-    </body>
+            <div id="linda_mar" class="surf_spot">
+                {{ data.Waves.linda_mar }}
+            </div>
+            <div id="fort_cronkite" class="surf_spot">
+                {{ data.Waves.fort_cronkite }}
+            </div>
+            <div id="bolinas" class="surf_spot">
+                {{ data.Waves.bolinas }}
+            </div>
+            <div id="fort_point" class="surf_spot">
+                {{ data.Waves.fort_point }}
+            </div>
+        </div>
+
+        <div id="conditions_containter">
+            <div id="wind" class="conditions">
+                {{ data.Wind.Speed }} mph
+                <i class="fa fa-location-arrow fa-2x"></i>
+            </div>
+            <div id="tide" class="conditions">
+                {{ data.Tide.Height }} ft
+                <i class="fa fa-caret-up" aria-hidden="true"></i>
+            </div>
+            <div id="time" class="conditions">
+            </div>
+            <div id="weather" class="conditions">
+                WEATHER PLACEHOLDER
+            </div>
+        </div>
+
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/jquery-3.1.1.min.js') }}"> </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/main.js') }}"> </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/waves.js') }}"> </script>
+</body>
 
 </html>
