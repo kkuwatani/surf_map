@@ -12,7 +12,7 @@ $(document).ready(function(){
                        'top': start_y + '%'},
                         0,
                         'linear');
-        console.log(period+delay);
+        console.log('period =' + period);
         window.setTimeout(function() { wave_animation_loop($wave, start_x, start_y, end_x, end_y, period, 0) }, period);
     }
 
@@ -27,16 +27,17 @@ $(document).ready(function(){
 
                 var wave_angle = -1*(wave.Direction - 270)*(Math.PI/180);
                 var wave_period = wave.Period;
-                var wave_velocity = 3;
+                var wave_velocity = 1.5;
                 var wave_iterator = 1;
                 var wave_distance = 0;
+                var aspect_ratio = 1.35; //x pixels / y pixels
 
                 while(true) {
                     wave_distance = wave_iterator * wave_velocity * wave_period;
                     wave_distance_x = Math.abs(wave_distance*Math.cos(wave_angle));
                     wave_distance_y = Math.abs(wave_distance*Math.sin(wave_angle));
 
-                    if(wave_distance_x + 50 > 100 || wave_distance_y + 50 > 100) {
+                    if(wave_distance_x/aspect_ratio + 50 > 100 || wave_distance_y + 50 > 100) {
                         break;
                     }
                     else {
@@ -60,7 +61,8 @@ $(document).ready(function(){
                         'left': pos_start_x + '%'
                     });
                     wave_space.append($div);
-                    wave_animation_loop($div, pos_start_x, pos_start_y, pos_end_x, pos_end_y, 1000*wave_distance/wave_velocity, 1000*j*wave_period);
+                    wave_distance_aspect_ratio = Math.sqrt((Math.pow(aspect_ratio*wave_distance_x, 2) + Math.pow(wave_distance_y, 2)))
+                    wave_animation_loop($div, pos_start_x, pos_start_y, pos_end_x, pos_end_y, 1000*wave_distance_aspect_ratio/wave_velocity, 1000*j*wave_period);
                 }
             })
         }
