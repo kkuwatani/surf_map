@@ -22,7 +22,7 @@ $(document).ready(function(){
         url: "update_conditions",
         success: function(data) {
             // console log for debugging
-//            console.log(data);
+            console.log(data);
             $.each(data.Swell, function(i, wave) {
 
                 var wave_angle = -1*(wave.Direction - 270)*(Math.PI/180);
@@ -70,7 +70,10 @@ $(document).ready(function(){
                     wave_animation_loop($div, pos_start_x, pos_start_y, pos_end_x, pos_end_y, 1000*wave_distance/wave_velocity, 1000*j*wave_period);
                 }
             })
-
+         wind_transform = data.Wind.Direction - 180;
+         $('#wind_icon').css({
+             'transform': "rotate(" + wind_transform + "deg)"
+         });
 
         }
     })
