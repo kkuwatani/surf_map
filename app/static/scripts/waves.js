@@ -30,7 +30,7 @@ $(document).ready(function(){
                 var wave_velocity = 1.5;
                 var wave_iterator = 1;
                 var wave_distance = 0;
-                var aspect_ratio = 1.35; //x pixels / y pixels
+                var aspect_ratio = 1.4; //x pixels / y pixels
 
                 while(true) {
                     wave_distance = wave_iterator * wave_velocity * wave_period;
