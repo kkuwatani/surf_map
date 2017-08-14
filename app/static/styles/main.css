@@ -13,6 +13,7 @@ html, body {
     width: 100%;
     margin: auto;
     background-color: #505050;
+    overflow: hidden;
 }
 
 #map {
@@ -21,7 +22,7 @@ html, body {
     height: 100%;
     width: 65%;
     background-color: #000000;
-    background-image: url("../images/surf map.svg");
+    background-image: url("../images/Surf Map Round.svg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
