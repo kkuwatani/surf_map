@@ -37,7 +37,7 @@ $(document).ready(function(){
                     wave_distance_x = Math.abs(wave_distance*Math.cos(wave_angle));
                     wave_distance_y = Math.abs(wave_distance*Math.sin(wave_angle));
 
-                    if(wave_distance_x/aspect_ratio + 50 > 100 || wave_distance_y + 50 > 100) {
+                    if(wave_distance_x + 50 > 100 || wave_distance_y + 50 > 100) {
                         break;
                     }
                     else {
@@ -53,16 +53,17 @@ $(document).ready(function(){
                     var $div = $("<div>", {id: i + 'Wave' + j});
                     $div.css({
                         'overflow': 'hidden',   
-                        'background-color': '#FF0000',
-                        'height': '20px',
-                        'width': '20px',
+                        'height': '500px',
+                        'width': '500px',
                         'position' : 'absolute',
+//                        'background-color' : '#FF0000',
                         'top': pos_start_y + '%',
-                        'left': pos_start_x + '%'
+                        'left': pos_start_x + '%',
+                        'background-image': 'url("static/images/Wave.svg")'
                     });
                     wave_space.append($div);
                     wave_distance_aspect_ratio = Math.sqrt((Math.pow(aspect_ratio*wave_distance_x, 2) + Math.pow(wave_distance_y, 2)))
-                    wave_animation_loop($div, pos_start_x, pos_start_y, pos_end_x, pos_end_y, 1000*wave_distance_aspect_ratio/wave_velocity, 1000*j*wave_period);
+//                    wave_animation_loop($div, pos_start_x, pos_start_y, pos_end_x, pos_end_y, 1000*wave_distance/wave_velocity, 1000*j*wave_period);
                 }
             })
         }
