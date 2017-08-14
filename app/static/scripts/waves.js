@@ -70,6 +70,8 @@ $(document).ready(function(){
                     wave_animation_loop($div, pos_start_x, pos_start_y, pos_end_x, pos_end_y, 1000*wave_distance/wave_velocity, 1000*j*wave_period);
                 }
             })
+
+
         }
     })
 
