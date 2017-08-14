@@ -32,49 +32,49 @@ html, body {
 }
 
 .conditions {
-    color: white
+    color: white;
 }
 
 .surf_spot {
-    color: white
+    color: white;
 }
 
 #ocean_beach {
     position: absolute;
-    left: 49%;
+    left: 47%;
     top: 51%;
     height: 30px;
-    width: 50px;
+    width: 60px;
 }
 
 #linda_mar {
     position: absolute;
-    left: 62%;
-    top: 78%;
+    left: 48%;
+    top: 91.5%;
     height: 30px;
-    width: 50px;
+    width: 60px;
 }
 
 #bolinas {
     position: absolute;
-    left: 19%;
-    top: 21%;
+    left: 21.5%;
+    top: 13%;
     height: 30px;
-    width: 50px;
+    width: 60px;
 }
 
 #fort_cronkite {
     position: absolute;
-    left: 53%;
-    top: 36%;
+    left: 46.5%;
+    top: 32.5%;
     height: 30px;
-    width: 50px;
+    width: 60px;
 }
 
 #fort_point {
     position: absolute;
-    left: 60%;
-    top: 40.5%;
+    left: 54%;
+    top: 38%;
     height: 30px;
-    width: 50px;
+    width: 60px;
 }
