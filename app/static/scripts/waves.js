@@ -39,7 +39,7 @@ $(document).ready(function(){
                     wave_distance_x = Math.abs(wave_distance*Math.cos(wave_angle));
                     wave_distance_y = Math.abs(wave_distance*Math.sin(wave_angle));
 
-                    if(wave_distance_x + 50 > 100 && wave_distance_y + 50 > 100 ) {
+                    if(wave_distance_x + 50 > 100 && wave_distance_y + 50 > 120 ) {
                         break;
                     }
                     else {
@@ -47,9 +47,9 @@ $(document).ready(function(){
                     }
                 }
                 pos_start_x = 50 - wave_distance*Math.cos(wave_angle);
-                pos_start_y = 50 - wave_distance*Math.sin(wave_angle) - 75;
+                pos_start_y = 50 - wave_distance*Math.sin(wave_angle) - 80;
                 pos_end_x = 50 + wave_distance*Math.cos(wave_angle);
-                pos_end_y = 50 + wave_distance*Math.sin(wave_angle) - 75;
+                pos_end_y = 50 + wave_distance*Math.sin(wave_angle) - 80;
 
                 for(j = 0; j < wave_iterator; j++) {
                     var $div = $("<div>", {id: i + 'Wave' + j});
