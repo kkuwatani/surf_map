@@ -1,3 +1,28 @@
+$(document).ready(function() {
+
+    $('#bolinas').click( function(){
+        window.open("http://www.surfline.com/surf-forecasts/spot/bolinas-jetty_5091/");
+    });
+
+    $('#linda_mar').click( function(){
+        window.open("http://www.surfline.com/surf-forecasts/spot/pacifica-lindamar_5013/");
+    });
+
+    $('#ocean_beach').click( function(){
+        window.open("http://www.surfline.com/surf-forecasts/spot/ocean-beach-sf_4127");
+    });
+
+    $('#fort_cronkite').click( function(){
+        window.open("http://www.surfline.com/surf-forecasts/spot/fort-cronkite-rodeo-beach_5089/");
+    });
+
+    $('#fort_point').click( function(){
+        window.open("http://www.surfline.com/surf-forecasts/spot/fort-point_5015/");
+    });
+
+});
+
+
 function startTime() {
     var today = new Date();
     var h = today.getHours();

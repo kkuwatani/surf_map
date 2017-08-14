@@ -15,39 +15,39 @@
             <img id="map_image" src="{{ url_for('static', filename='images/New Map@2x.png') }}">
             <div id="ocean_beach" class="surf_spot">
                 <i class="fa fa-circle" aria-hidden="true"></i>
-                {{ data.Waves.ocean_beach }} FT
+                {{ data.Waves.ocean_beach }} ft
             </div>
             <div id="linda_mar" class="surf_spot">
                 <i class="fa fa-circle" aria-hidden="true"></i>
-                {{ data.Waves.linda_mar }} FT
+                {{ data.Waves.linda_mar }} ft
             </div>
             <div id="fort_cronkite" class="surf_spot">
                 <i class="fa fa-circle" aria-hidden="true"></i>
-                {{ data.Waves.fort_cronkite }} FT
+                {{ data.Waves.fort_cronkite }} ft
             </div>
             <div id="bolinas" class="surf_spot">
                 <i class="fa fa-circle" aria-hidden="true"></i>
-                {{ data.Waves.bolinas }} FT
+                {{ data.Waves.bolinas }} ft
             </div>
             <div id="fort_point" class="surf_spot">
                 <i class="fa fa-circle" aria-hidden="true"></i>
-                {{ data.Waves.fort_point }} FT
+                {{ data.Waves.fort_point }} ft
             </div>
         </div>
 
-        <div id="conditions_containter">
+        <div id="conditions_container">
+            <div id="tide" class="conditions">
+                {{ data.Tide.Height }} ft
+                <i id="tide_icon" class="fa fa-caret-up" aria-hidden="true"></i>
+            </div>
             <div id="wind" class="conditions">
                 {{ data.Wind.Speed }} mph
                 <img id="wind_icon" src="{{ url_for('static', filename='images/Wind Direction.svg') }}">
             </div>
-            <div id="tide" class="conditions">
-                {{ data.Tide.Height }} ft
-                <i class="fa fa-caret-up" aria-hidden="true"></i>
-            </div>
+            <!--<div id="weather" class="conditions">-->
+                <!--WEATHER-->
+            <!--</div>-->
             <div id="time" class="conditions">
-            </div>
-            <div id="weather" class="conditions">
-                WEATHER PLACEHOLDER
             </div>
         </div>
 
