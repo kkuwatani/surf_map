@@ -23,10 +23,12 @@ html, body {
     height: 100%;
     width: 65%;
     z-index: 1;
-    background-image: url("../images/Surf Map Desktop.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+}
+
+#map_image {
+    height: 100%;
+    width: 100%;
+    viewBox: 
 }
 
 .conditions {
