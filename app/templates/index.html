@@ -38,7 +38,7 @@
         <div id="conditions_containter">
             <div id="wind" class="conditions">
                 {{ data.Wind.Speed }} mph
-                <i class="fa fa-location-arrow fa-2x"></i>
+                <img id="wind_icon" src="{{ url_for('static', filename='images/Wind Direction.svg') }}">
             </div>
             <div id="tide" class="conditions">
                 {{ data.Tide.Height }} ft
