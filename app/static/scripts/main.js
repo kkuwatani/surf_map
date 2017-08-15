@@ -22,19 +22,28 @@ $(document).ready(function() {
 
 });
 
+function updateClock ( )
+{
+  var currentTime = new Date ( );
 
-function startTime() {
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
-    m = checkTime(m);
-    s = checkTime(s);
-    document.getElementById('time').innerHTML =
-    h + ":" + m + ":" + s;
-    var t = setTimeout(startTime, 500);
-}
-function checkTime(i) {
-    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-    return i;
+  var currentHours = currentTime.getHours ( );
+  var currentMinutes = currentTime.getMinutes ( );
+
+  // Pad the minutes and seconds with leading zeros, if required
+  currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+
+  // Choose either "AM" or "PM" as appropriate
+  var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
+
+  // Convert the hours component to 12-hour format if needed
+  currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
+
+  // Convert an hours component of "0" to "12"
+  currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+
+  // Compose the string for display
+  var currentTimeString = currentHours + ":" + currentMinutes + " " + timeOfDay;
+
+  // Update the time display
+  document.getElementById("clock").firstChild.nodeValue = currentTimeString;
 }

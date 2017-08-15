@@ -9,7 +9,7 @@
     {% endif %}
 </head>
 
-<body onload="startTime()">
+<body onload="updateClock(); setInterval('updateClock()', 15000 )">
     <div id="wrapper">
         <div id="map">
             <img id="map_image" src="{{ url_for('static', filename='images/New Map@2x.png') }}">
@@ -47,7 +47,7 @@
             <!--<div id="weather" class="conditions">-->
                 <!--WEATHER-->
             <!--</div>-->
-            <div id="time" class="conditions">
+            <div id="clock" class="conditions">
             </div>
         </div>
 

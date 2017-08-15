@@ -80,7 +80,7 @@ def get_current_conditions_summary():
     else:
         data['Tide']['Rise'] = False
 
-        # grabs significant swell direction, size, period
+    # grabs significant swell direction, size, period
     data['Swell'] = {}
     for i in range(1, 6):
         height = 'swell_height' + str(i)
@@ -95,3 +95,4 @@ def get_current_conditions_summary():
     return data
 
 
+print(get_current_conditions_summary())
