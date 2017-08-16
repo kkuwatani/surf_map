@@ -71,7 +71,7 @@ $(document).ready(function(){
                         'transform': 'rotate(' + transform_angle + 'deg)',
                         'bottom': pos_start_y - wave_image_y/2 + '%',
                         'left': pos_start_x - wave_image_x/2 + '%',
-                        'background-image': 'url("static/images/Wave.svg")',
+                        'background-image': 'url("static/images/Dank Wave.svg")',
                         'background-repeat': 'no-repeat',
                         'background-position': 'center',
                         'opacity' : 0.7
