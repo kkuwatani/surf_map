@@ -31,7 +31,7 @@ $(document).ready(function(){
 
                 var wave_angle = -1*(wave.Direction - 270)*(Math.PI/180);
                 var wave_period = wave.Period;
-                var wave_velocity = 1.0;
+                var wave_velocity = 1.25;
                 var wave_iterator = 1;
                 var wave_distance = 0;
 
